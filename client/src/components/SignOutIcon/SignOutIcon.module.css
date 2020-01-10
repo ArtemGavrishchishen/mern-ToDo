@@ -1,0 +1,20 @@
+.signOut {
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.signOut svg {
+  fill: rgb(0, 174, 255);
+  transition: fill 0.2s linear;
+}
+
+.signOut svg:hover,
+.signOut svg:focus {
+  fill: rgb(0, 110, 255);
+}
