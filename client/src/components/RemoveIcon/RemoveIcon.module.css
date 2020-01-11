@@ -1,0 +1,17 @@
+.remove {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.remove svg {
+  fill: rgb(255, 0, 0);
+  transition: fill 0.2s linear;
+}
+
+.remove svg:hover,
+.remove svg:focus {
+  fill: rgb(200, 0, 0);
+}

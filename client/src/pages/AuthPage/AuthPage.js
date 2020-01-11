@@ -52,7 +52,7 @@ const AuthPage = () => {
             placeholder="Enter password"
           />
         </div>
-        <button className={styles.btn}>
+        <button type="submit" className={styles.btn}>
           <SignInIcon />
         </button>
       </form>
