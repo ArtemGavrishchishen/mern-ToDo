@@ -5,9 +5,9 @@ import styles from "./SignOutIcon.module.css";
 
 const SignOutIcon = () => {
   return (
-    <button type="button" className={styles.signOut}>
+    <div className={styles.signOut}>
       <SignOut />
-    </button>
+    </div>
   );
 };
 

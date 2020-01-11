@@ -1,10 +1,14 @@
 import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import useAuth from "./hooks/auth.hook";
 import AuthContext from "./context/AuthContext";
+import routes from "./configs/routes";
 
 import AppHeader from "./components/AppHeader";
 import AuthPage from "./pages/AuthPage";
+import RegistrationPage from "./pages/RegistrationPage";
+import NotesPage from "./pages/NotesPage";
 
 function App() {
   const { login, logout, token, userId } = useAuth();
@@ -16,7 +20,28 @@ function App() {
         value={{ login, logout, token, userId, isAuthenticated }}
       >
         <AppHeader />
-        <main>{!isAuthenticated && <AuthPage />}</main>
+        <main>
+          {!isAuthenticated && (
+            <Switch>
+              <Route exact path={routes.AUTH} component={AuthPage} />
+              <Route
+                exact
+                path={routes.REGISTRATION}
+                component={RegistrationPage}
+              />
+
+              <Redirect to="/" />
+            </Switch>
+          )}
+
+          {isAuthenticated && (
+            <Switch>
+              <Route exact path={routes.NOTES} component={NotesPage} />
+
+              <Redirect to="/notes" />
+            </Switch>
+          )}
+        </main>
       </AuthContext.Provider>
     </>
   );

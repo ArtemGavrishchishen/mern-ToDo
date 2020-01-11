@@ -1,4 +1,4 @@
-.authentication {
+.registration {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,21 +26,14 @@
   outline: none;
   text-align: center;
   font-size: 18px;
+  margin-bottom: 15px;
 }
 
-.input:first-child {
-  margin-bottom: 30px;
+.input:last-child {
+  margin-bottom: 0px;
 }
 
 .input:hover,
 .input:focus {
   box-shadow: 0 0 10px rgb(0, 110, 255);
-}
-
-.btn {
-  background: transparent;
-  border: none;
-  outline: none;
-  margin: 0;
-  padding: 0;
 }

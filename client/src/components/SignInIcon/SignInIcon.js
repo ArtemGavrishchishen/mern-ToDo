@@ -5,9 +5,9 @@ import styles from "./SignInIcon.module.css";
 
 const SignInIcon = () => {
   return (
-    <button type="submit" className={styles.signIn}>
+    <div className={styles.signIn}>
       <SignIn />
-    </button>
+    </div>
   );
 };
 
