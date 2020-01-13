@@ -1,16 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import useHttp from "../../hooks/http.hook";
+import AuthContext from "../../context/AuthContext";
 
 import styles from "./NoteEditor.module.css";
 
 const NoteEditor = () => {
+  const { request } = useHttp();
+  const auth = useContext(AuthContext);
   const [form, setForm] = useState({ title: "", content: "" });
 
   const changeHandler = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault();
+    try {
+      const data = await request(
+        "/note/add",
+        "POST",
+        {
+          note: form
+        },
+        { Authorization: `Bearer ${auth.token}` }
+      );
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (

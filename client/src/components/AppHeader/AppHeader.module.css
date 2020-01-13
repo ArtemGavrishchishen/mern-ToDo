@@ -11,3 +11,11 @@
   margin-left: auto;
   margin-right: 100px;
 }
+
+.btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}

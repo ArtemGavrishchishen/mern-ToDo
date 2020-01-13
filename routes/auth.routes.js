@@ -25,7 +25,7 @@ router.post(
           message: "Incorrect registration data"
         });
       }
-      const { email, password } = req.body;
+      const { name, surname, email, password } = req.body;
       const candidate = await User.findOne({ email });
 
       if (candidate) {
@@ -33,7 +33,7 @@ router.post(
       }
 
       const hashedPassword = await bcrypt.hash(password, 12);
-      const user = new User({ email, password: hashedPassword });
+      const user = new User({ name, surname, email, password: hashedPassword });
 
       await user.save();
       res.status(201).json({ message: "User created" });

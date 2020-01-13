@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json({ extended: true }));
 
 app.use("/auth", require("./routes/auth.routes"));
+app.use("/note", require("./routes/note.routes"));
 
 const PORT = config.get("port") || 5000;
 

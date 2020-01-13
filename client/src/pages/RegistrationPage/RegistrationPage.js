@@ -12,7 +12,12 @@ import styles from "./RegistrationPage.module.css";
 const RegistrationPage = () => {
   const { request } = useHttp();
   const history = useHistory();
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    password: ""
+  });
 
   const changeHandler = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -39,6 +44,24 @@ const RegistrationPage = () => {
     <section className={styles.registration}>
       <form className={styles.form}>
         <div className={styles.inputField}>
+          <input
+            className={styles.input}
+            type="text"
+            name="name"
+            value={form.name}
+            required
+            onChange={changeHandler}
+            placeholder="First Name"
+          />
+          <input
+            className={styles.input}
+            type="text"
+            name="surname"
+            value={form.surname}
+            required
+            onChange={changeHandler}
+            placeholder="Last Name"
+          />
           <input
             className={styles.input}
             type="text"
