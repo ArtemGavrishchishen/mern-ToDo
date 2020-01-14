@@ -18,7 +18,7 @@ const NoteEditor = () => {
     e.preventDefault();
     try {
       const data = await request(
-        "/note/add",
+        "/note",
         "POST",
         {
           note: form
