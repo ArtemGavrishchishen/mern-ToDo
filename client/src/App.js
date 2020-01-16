@@ -9,15 +9,16 @@ import AppHeader from "./components/AppHeader";
 import AuthPage from "./pages/AuthPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import NotesPage from "./pages/NotesPage";
+import SettingPage from "./pages/SettingPage";
 
 function App() {
-  const { login, logout, token, userId } = useAuth();
+  const { login, logout, token, userId, userName } = useAuth();
   const isAuthenticated = !!token;
 
   return (
     <>
       <AuthContext.Provider
-        value={{ login, logout, token, userId, isAuthenticated }}
+        value={{ login, logout, token, userId, userName, isAuthenticated }}
       >
         <AppHeader />
         <main>
@@ -37,6 +38,7 @@ function App() {
           {isAuthenticated && (
             <Switch>
               <Route exact path={routes.NOTES} component={NotesPage} />
+              <Route exact path={routes.SETTINGS} component={SettingPage} />
 
               <Redirect to="/notes" />
             </Switch>

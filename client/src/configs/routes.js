@@ -1,5 +1,6 @@
 export default Object.freeze({
   AUTH: "/",
   REGISTRATION: "/register",
-  NOTES: "/notes"
+  NOTES: "/notes",
+  SETTINGS: "/settings"
 });

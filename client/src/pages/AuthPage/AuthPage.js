@@ -23,7 +23,7 @@ const AuthPage = () => {
     try {
       const data = await request("/auth/login", "POST", { ...form });
 
-      login(data.token, data.userId);
+      login(data.token, data.userId, data.userName);
     } catch (e) {
       console.log(e);
     }

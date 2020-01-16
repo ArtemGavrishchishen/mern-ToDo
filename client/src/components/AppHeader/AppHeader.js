@@ -1,34 +1,25 @@
 import React, { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import AuthContext from "../../context/AuthContext";
 import routes from "../../configs/routes";
 
-import SignOutIcon from "../SignOutIcon";
+import UserMenu from "../UserMenu";
 import RegistrationIcon from "../RegistrationIcon";
 import styles from "./AppHeader.module.css";
 
 const AppHeader = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
-  const history = useHistory();
-
-  const logoutHandler = e => {
-    e.preventDefault();
-    logout();
-    history.push(routes.AUTH);
-  };
+  const { isAuthenticated } = useContext(AuthContext);
 
   return (
     <header className={styles.header}>
       {isAuthenticated && (
-        <div className={styles.signOut}>
-          <button type="button" className={styles.btn} onClick={logoutHandler}>
-            <SignOutIcon />
-          </button>
+        <div className={styles.userMenu}>
+          <UserMenu />
         </div>
       )}
       {!isAuthenticated && (
-        <div className={styles.signOut}>
+        <div className={styles.userMenu}>
           <Link to={routes.REGISTRATION}>
             <RegistrationIcon />
           </Link>

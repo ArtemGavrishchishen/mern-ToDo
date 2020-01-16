@@ -1,0 +1,68 @@
+.container {
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  padding: 8px;
+  border: 1px solid #f2f2f2;
+  width: 200px;
+  background: #f9f9f9;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.list {
+  list-style: none;
+
+  padding-left: 25px;
+}
+
+.item {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.link {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(0, 174, 255);
+  transition: color 0.2s linear;
+}
+.link:hover {
+  color: rgb(0, 110, 255);
+}
+
+.link:hover svg {
+  fill: rgb(0, 110, 255);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 5px 0;
+  color: rgb(0, 174, 255);
+  transition: color 0.2s linear;
+}
+
+.btn:hover {
+  color: rgb(0, 110, 255);
+}
+
+.btn:hover svg {
+  fill: rgb(0, 110, 255);
+}
+
+.span {
+  padding-left: 25px;
+}
