@@ -50,14 +50,14 @@ router.delete("/", auth, async (req, res) => {
 router.put("/", auth, async (req, res) => {
   try {
     const {
-      note: { id, title, content }
+      note: { _id, title, content }
     } = req.body;
     const updateAt = new Date();
 
     const note = await Note.findOneAndUpdate(
-      { id },
+      { _id },
       { title, content, updateAt },
-      { new: true }
+      { new: true, useFindAndModify: false }
     );
 
     res.status(201).json({ note });

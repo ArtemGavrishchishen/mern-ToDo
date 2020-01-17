@@ -14,10 +14,20 @@ const NotesPage = () => {
   const { token } = useContext(AuthContext);
 
   const [form, setForm] = useState({ title: "", content: "" });
+  const [updateNote, setUpdateNote] = useState({
+    _id: "",
+    title: "",
+    content: ""
+  });
   const [notes, setNotes] = useState([]);
+  const [isModalOpen, setModal] = useState(false);
 
   const changeHandler = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const changeUpdateHandler = e => {
+    setUpdateNote({ ...updateNote, [e.target.name]: e.target.value });
   };
 
   const submitHandler = async e => {
@@ -75,12 +85,72 @@ const NotesPage = () => {
     [token, request, notes]
   );
 
+  const updateNoteHandler = note => {
+    setUpdateNote({ ...note });
+    setModal(true);
+  };
+
+  const submitModalHandler = async e => {
+    e.preventDefault();
+    try {
+      const data = await request(
+        "/note",
+        "PUT",
+        {
+          note: updateNote
+        },
+        { Authorization: `Bearer ${auth.token}` }
+      );
+
+      if (data && data.note) {
+        const updateArr = notes.map(note =>
+          note._id === data.note._id ? data.note : note
+        );
+
+        setNotes(updateArr);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    setModal(false);
+  };
+
   useEffect(() => {
     fetchNotes();
   }, [fetchNotes]);
 
   return (
     <>
+      {isModalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.content}>
+            <form className={styles.form} onSubmit={submitModalHandler}>
+              <h1 className={styles.title}>Update Note!</h1>
+
+              <input
+                className={styles.input}
+                name="title"
+                placeholder="Title"
+                required
+                value={updateNote.title}
+                onChange={changeUpdateHandler}
+              />
+              <textarea
+                className={styles.textarea}
+                name="content"
+                placeholder="Text"
+                rows="3"
+                value={updateNote.content}
+                onChange={changeUpdateHandler}
+              />
+              <button className={styles.submit} type="submit">
+                Update
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
       <section className={styles.editor}>
         <form className={styles.form} onSubmit={submitHandler}>
           <h1 className={styles.title}>Add a new ToDo!</h1>
@@ -118,7 +188,7 @@ const NotesPage = () => {
                   <button
                     type="button"
                     className={styles.btn}
-                    onClick={() => {}}
+                    onClick={() => updateNoteHandler(note)}
                   >
                     <Update />
                   </button>

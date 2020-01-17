@@ -2,7 +2,8 @@
   margin-bottom: 20px;
 }
 
-.editor .form {
+.editor .form,
+.modal .form {
   display: flex;
   flex-direction: column;
   max-width: 70%;
@@ -14,7 +15,8 @@
   margin: 0 auto;
 }
 
-.editor .title {
+.editor .title,
+.modal .title {
   text-align: center;
   text-transform: uppercase;
   color: rgb(0, 174, 255);
@@ -24,7 +26,9 @@
 }
 
 .editor .input,
-.editor .textarea {
+.modal .input,
+.editor .textarea,
+.modal .textarea {
   width: 80%;
   padding: 10px 15px;
   outline: none;
@@ -35,15 +39,19 @@
 }
 
 .editor .input:focus,
-.editor .textarea:focus {
+.modal .input:focus,
+.editor .textarea:focus,
+.modal .textarea:focus {
   box-shadow: 0px 0px 3px 1px rgb(0, 174, 255);
 }
 
-.editor .textarea {
+.editor .textarea,
+.modal .textarea {
   resize: none;
 }
 
-.editor .submit {
+.editor .submit,
+.modal .submit {
   width: 250px;
   height: 35px;
   background-color: rgb(0, 174, 255);
@@ -57,7 +65,8 @@
   transition: background-color 0.2s linear;
 }
 
-.editor .submit:hover {
+.editor .submit:hover,
+.modal .submit:hover {
   background-color: rgb(0, 110, 255);
 }
 
@@ -130,4 +139,31 @@
 
 .notes .btn svg:hover {
   fill: rgb(0, 110, 255);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: rgba(0, 110, 255, 0.2);
+}
+.modal .content {
+  position: absolute;
+  min-width: 400px;
+  min-height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: #ffffff;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.modal .form {
+  max-width: 100%;
 }
