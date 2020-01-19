@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import VerifiedIcon from "../../components/VerifiedIcon";
-import RemoveIcon from "../../components/RemoveIcon";
+import VerifiedIcon from '../../components/VerifiedIcon';
+import RemoveIcon from '../../components/RemoveIcon';
 
-import useHttp from "../../hooks/http.hook";
-import routes from "../../configs/routes";
+import useHttp from '../../hooks/http.hook';
+import routes from '../../configs/routes';
 
-import styles from "./RegistrationPage.module.css";
+import styles from './RegistrationPage.module.css';
 
 const RegistrationPage = () => {
   const { request } = useHttp();
   const history = useHistory();
   const [form, setForm] = useState({
-    name: "",
-    surname: "",
-    email: "",
-    password: ""
+    name: '',
+    surname: '',
+    email: '',
+    password: ''
   });
 
   const changeHandler = e => {
@@ -27,7 +27,7 @@ const RegistrationPage = () => {
     e.preventDefault();
 
     try {
-      const data = await request("/auth/register", "POST", { ...form });
+      const data = await request('/auth/register', 'POST', { ...form });
       console.log(data);
       history.push(routes.AUTH);
     } catch (e) {
@@ -85,16 +85,16 @@ const RegistrationPage = () => {
             <button
               type="button"
               className={styles.btn}
-              onClick={registerHandler}
+              onClick={cancelHandler}
             >
-              <VerifiedIcon />
+              <RemoveIcon />
             </button>
             <button
               type="button"
               className={styles.btn}
-              onClick={cancelHandler}
+              onClick={registerHandler}
             >
-              <RemoveIcon />
+              <VerifiedIcon />
             </button>
           </div>
         </div>

@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/ArtemGavrishchishen/mern-ToDo.git"
   },
-  "author": "Artem Gavrishchishen",
+  "author": "Artem Gavrishchishen<artem.gavrishchishen@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ArtemGavrishchishen/mern-ToDo/issues"

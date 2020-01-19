@@ -1,0 +1,76 @@
+.registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 400px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgb(0, 174, 255);
+  outline: none;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.input:last-child {
+  margin-bottom: 0px;
+}
+
+.input:hover,
+.input:focus {
+  box-shadow: 0 0 10px rgb(0, 110, 255);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.avatar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.avatar select {
+  width: 200px;
+  height: 50px;
+  border: none;
+  appearance: none;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgb(0, 174, 255);
+  outline: none;
+  font-size: 18px;
+  padding: 0 35px;
+}
+
+.avatar div {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}

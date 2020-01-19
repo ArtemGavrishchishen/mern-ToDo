@@ -1,24 +1,24 @@
-import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-import useAuth from "./hooks/auth.hook";
-import AuthContext from "./context/AuthContext";
-import routes from "./configs/routes";
+import useAuth from './hooks/auth.hook';
+import AuthContext from './context/AuthContext';
+import routes from './configs/routes';
 
-import AppHeader from "./components/AppHeader";
-import AuthPage from "./pages/AuthPage";
-import RegistrationPage from "./pages/RegistrationPage";
-import NotesPage from "./pages/NotesPage";
-import SettingPage from "./pages/SettingPage";
+import AppHeader from './components/AppHeader';
+import AuthPage from './pages/AuthPage';
+import RegistrationPage from './pages/RegistrationPage';
+import NotesPage from './pages/NotesPage';
+import SettingPage from './pages/SettingPage';
 
 function App() {
-  const { login, logout, token, userId, userName } = useAuth();
+  const { login, logout, token, userId } = useAuth();
   const isAuthenticated = !!token;
 
   return (
     <>
       <AuthContext.Provider
-        value={{ login, logout, token, userId, userName, isAuthenticated }}
+        value={{ login, logout, token, userId, isAuthenticated }}
       >
         <AppHeader />
         <main>
