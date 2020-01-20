@@ -1,17 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from "react";
 
-import SignInIcon from '../../components/SignInIcon';
+import SignInIcon from "../../components/SignInIcon";
 
-import useHttp from '../../hooks/http.hook';
-import AuthContext from '../../context/AuthContext';
+import useHttp from "../../hooks/http.hook";
+import AuthContext from "../../context/AuthContext";
 
-import styles from './AuthPage.module.css';
+import styles from "./AuthPage.module.css";
 
 const AuthPage = () => {
   const { request, loading } = useHttp();
   const { login } = useContext(AuthContext);
 
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ email: "", password: "" });
 
   const changeHandler = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,7 +21,7 @@ const AuthPage = () => {
     e.preventDefault();
 
     try {
-      const data = await request('/auth/login', 'POST', { ...form });
+      const data = await request("/auth/login", "POST", { ...form });
 
       login(data.token, data.userId);
     } catch (e) {

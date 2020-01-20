@@ -4,27 +4,27 @@ import React, {
   useRef,
   useEffect,
   useCallback
-} from 'react';
+} from "react";
 
-import useHttp from '../../hooks/http.hook';
-import AuthContext from '../../context/AuthContext';
+import useHttp from "../../hooks/http.hook";
+import AuthContext from "../../context/AuthContext";
 
-import Avatar from '../Avatar';
-import DropDown from '../DropDown';
+import Avatar from "../Avatar";
+import DropDown from "../DropDown";
 
-import styles from './UserMenu.module.css';
+import styles from "./UserMenu.module.css";
 
 const UserMenu = () => {
-  const { token } = useContext(AuthContext);
+  const { token, isUpdate, setUpdateFalse } = useContext(AuthContext);
   const { request } = useHttp();
   const containerRef = useRef();
 
   const [isDropDownOpen, setDropDown] = useState(false);
-  const [user, setUser] = useState({ avatar: '', name: '', surname: '' });
+  const [user, setUser] = useState({ avatar: "", name: "", surname: "" });
 
   const fetchUser = useCallback(async () => {
     try {
-      const fatched = await request('/user', 'GET', null, {
+      const fatched = await request("/user", "GET", null, {
         Authorization: `Bearer ${token}`
       });
 
@@ -33,14 +33,15 @@ const UserMenu = () => {
         name: fatched.name,
         surname: fatched.surname
       });
+      setUpdateFalse();
     } catch (e) {
       console.log(e);
     }
-  }, [token, request]);
+  }, [token, request, setUpdateFalse]);
 
   useEffect(() => {
     fetchUser();
-  }, [fetchUser]);
+  }, [fetchUser, isUpdate]);
 
   const handleWindowClick = useCallback(
     evt => {
@@ -62,10 +63,10 @@ const UserMenu = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('click', handleWindowClick);
+    window.addEventListener("click", handleWindowClick);
 
     return () => {
-      window.removeEventListener('click', handleWindowClick);
+      window.removeEventListener("click", handleWindowClick);
     };
   }, [handleWindowClick]);
 

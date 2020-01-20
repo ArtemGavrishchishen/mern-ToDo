@@ -1,30 +1,30 @@
-import React, { useState, useCallback, useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useCallback, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
-import { IMAGE } from '../../components/Avatar';
-import Avatar from '../../components/Avatar';
-import VerifiedIcon from '../../components/VerifiedIcon';
-import RemoveIcon from '../../components/RemoveIcon';
+import { IMAGE } from "../../components/Avatar";
+import Avatar from "../../components/Avatar";
+import VerifiedIcon from "../../components/VerifiedIcon";
+import RemoveIcon from "../../components/RemoveIcon";
 
-import useHttp from '../../hooks/http.hook';
-import AuthContext from '../../context/AuthContext';
-import routes from '../../configs/routes';
+import useHttp from "../../hooks/http.hook";
+import AuthContext from "../../context/AuthContext";
+import routes from "../../configs/routes";
 
-import styles from './SettingPage.module.css';
+import styles from "./SettingPage.module.css";
 
 const SettingPage = () => {
   const { request } = useHttp();
-  const { token } = useContext(AuthContext);
+  const { token, setUpdateTrue } = useContext(AuthContext);
   const history = useHistory();
   const [form, setForm] = useState({
-    name: '',
-    surname: '',
-    avatar: 'default'
+    name: "",
+    surname: "",
+    avatar: "default"
   });
 
   const fetchUser = useCallback(async () => {
     try {
-      const fatched = await request('/user', 'GET', null, {
+      const fatched = await request("/user", "GET", null, {
         Authorization: `Bearer ${token}`
       });
 
@@ -53,14 +53,15 @@ const SettingPage = () => {
 
     try {
       const data = await request(
-        '/user',
-        'PUT',
+        "/user",
+        "PUT",
         {
           user: form
         },
         { Authorization: `Bearer ${token}` }
       );
       if (data) {
+        setUpdateTrue();
       }
       history.push(routes.NOTES);
     } catch (e) {
