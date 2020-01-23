@@ -167,3 +167,23 @@
 .modal .form {
   max-width: 100%;
 }
+
+@media (max-width: 576px) {
+  .editor .form,
+  .modal .form {
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .editor .input,
+  .modal .input,
+  .editor .textarea,
+  .modal .textarea {
+    width: 95%;
+    padding: 10px;
+  }
+  .editor .submit,
+  .modal .submit {
+    width: 80%;
+  }
+}

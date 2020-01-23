@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 75vh;
 }
 
 .form {
@@ -23,6 +23,7 @@
   border: none;
   border-radius: 25px;
   box-shadow: 0 0 10px rgb(0, 174, 255);
+  -webkit-appearance: none;
   outline: none;
   text-align: center;
   font-size: 18px;
@@ -43,4 +44,28 @@
   outline: none;
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 576px) {
+  .authentication {
+    height: 65vh;
+  }
+  .form {
+    width: 100%;
+  }
+
+  .inputField {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .form {
+    flex-direction: column;
+  }
+
+  .input {
+    width: 90%;
+    margin-right: 0px;
+  }
 }
