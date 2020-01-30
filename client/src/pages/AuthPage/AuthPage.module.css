@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  margin: auto;
 }
 
 .form {
@@ -47,9 +47,6 @@
 }
 
 @media (max-width: 576px) {
-  .authentication {
-    height: 65vh;
-  }
   .form {
     width: 100%;
   }

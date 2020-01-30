@@ -7,6 +7,7 @@ import AuthContext from "./context/AuthContext";
 import routes from "./configs/routes";
 
 import AppHeader from "./components/AppHeader";
+import AppFooter from "./components/AppFooter";
 import AuthPage from "./pages/AuthPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import NotesPage from "./pages/NotesPage";
@@ -55,6 +56,7 @@ function App() {
             </Switch>
           )}
         </main>
+        <AppFooter />
       </AuthContext.Provider>
     </>
   );

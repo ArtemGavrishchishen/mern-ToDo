@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 100%;
+  padding: 20px;
+  background: #f0f7f9;
+}
+
+.text {
+  margin: 0 auto;
+}

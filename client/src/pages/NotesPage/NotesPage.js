@@ -120,7 +120,7 @@ const NotesPage = () => {
   }, [fetchNotes]);
 
   return (
-    <>
+    <div className={styles.container}>
       {isModalOpen && (
         <div className={styles.modal}>
           <div className={styles.content}>
@@ -207,7 +207,7 @@ const NotesPage = () => {
           ))}
         </ul>
       </section>
-    </>
+    </div>
   );
 };
 
