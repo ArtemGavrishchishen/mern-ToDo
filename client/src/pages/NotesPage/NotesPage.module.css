@@ -189,4 +189,11 @@
   .modal .submit {
     width: 80%;
   }
+
+  .notes .list {
+    width: 90%;
+  }
+  .notes .item {
+    width: 100%;
+  }
 }

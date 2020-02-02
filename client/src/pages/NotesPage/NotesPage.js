@@ -1,23 +1,23 @@
-import React, { useState, useContext, useCallback, useEffect } from "react";
+import React, { useState, useContext, useCallback, useEffect } from 'react';
 
-import useHttp from "../../hooks/http.hook";
-import AuthContext from "../../context/AuthContext";
+import useHttp from '../../hooks/http.hook';
+import AuthContext from '../../context/AuthContext';
 
-import { ReactComponent as Delete } from "./assets/delete.svg";
-import { ReactComponent as Update } from "./assets/update.svg";
+import { ReactComponent as Delete } from './assets/delete.svg';
+import { ReactComponent as Update } from './assets/update.svg';
 
-import styles from "./NotesPage.module.css";
+import styles from './NotesPage.module.css';
 
 const NotesPage = () => {
   const { request } = useHttp();
   const auth = useContext(AuthContext);
   const { token } = useContext(AuthContext);
 
-  const [form, setForm] = useState({ title: "", content: "" });
+  const [form, setForm] = useState({ title: '', content: '' });
   const [updateNote, setUpdateNote] = useState({
-    _id: "",
-    title: "",
-    content: ""
+    _id: '',
+    title: '',
+    content: ''
   });
   const [notes, setNotes] = useState([]);
   const [isModalOpen, setModal] = useState(false);
@@ -34,8 +34,8 @@ const NotesPage = () => {
     e.preventDefault();
     try {
       const data = await request(
-        "/note",
-        "POST",
+        '/note',
+        'POST',
         {
           note: form
         },
@@ -44,6 +44,7 @@ const NotesPage = () => {
 
       if (data && data.note) {
         setNotes([data.note, ...notes]);
+        setForm({ title: '', content: '' });
       }
     } catch (e) {
       console.log(e);
@@ -52,7 +53,7 @@ const NotesPage = () => {
 
   const fetchNotes = useCallback(async () => {
     try {
-      const fatched = await request("/note", "GET", null, {
+      const fatched = await request('/note', 'GET', null, {
         Authorization: `Bearer ${token}`
       });
       const reversed = fatched.reverse();
@@ -67,8 +68,8 @@ const NotesPage = () => {
     async id => {
       try {
         const deleted = await request(
-          "/note",
-          "DELETE",
+          '/note',
+          'DELETE',
           { id },
           {
             Authorization: `Bearer ${token}`
@@ -94,8 +95,8 @@ const NotesPage = () => {
     e.preventDefault();
     try {
       const data = await request(
-        "/note",
-        "PUT",
+        '/note',
+        'PUT',
         {
           note: updateNote
         },

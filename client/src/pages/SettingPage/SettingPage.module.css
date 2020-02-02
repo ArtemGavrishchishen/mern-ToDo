@@ -1,4 +1,4 @@
-.registration {
+.setting {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,6 +22,7 @@
   border: none;
   border-radius: 25px;
   box-shadow: 0 0 10px rgb(0, 174, 255);
+  -webkit-appearance: none;
   outline: none;
   text-align: center;
   font-size: 18px;
@@ -73,4 +74,32 @@
   width: 80px;
   height: 80px;
   margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  .setting {
+    flex: 0 0 100%;
+  }
+
+  .form {
+    flex: 0 0 100%;
+  }
+  .inputField {
+    width: 100%;
+  }
+  .input {
+    width: 90%;
+    margin: 0 auto 15px;
+  }
+  .avatar {
+    flex-direction: column;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  .avatar .select {
+    width: 90%;
+  }
+  .select {
+    order: 1;
+  }
 }
